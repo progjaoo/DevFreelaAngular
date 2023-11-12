@@ -1,0 +1,32 @@
+<div class="ld-project-create-edit">
+  <ld-wrapper back="list">
+    <form class="left" (submit)="createOrEdit()" [formGroup]="projectCreateEditForm">
+
+      <h1 class="main-title">{{ title }}</h1>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="title">
+        <mat-error *ngIf="helpers.isInvalid(projectCreateEditForm, 'title', 'required')">{{ msg.required }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Custo Total</mat-label>
+        <input matInput formControlName="totalCost" mask="separator.2" thousandSeparator=".">
+        <mat-error *ngIf="helpers.isInvalid(projectCreateEditForm, 'totalCost', 'required')">{{ msg.required }}</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="legacy">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+        <mat-error *ngIf="helpers.isInvalid(projectCreateEditForm, 'description', 'required')">{{ msg.required }}</mat-error>
+      </mat-form-field>
+
+      <ld-button [text]="actionButtonText"></ld-button>
+    </form>
+    <div class="right">
+      <img class="image" alt="Fundo de decoração com 3 cubos com fundo gradient das cores do arco-iris"
+        src="assets/image/bg-float-cubes.png">
+    </div>
+  </ld-wrapper>
+</div>

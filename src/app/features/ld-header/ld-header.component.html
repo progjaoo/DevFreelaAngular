@@ -1,0 +1,30 @@
+<header class="ld-header">
+    <!-- SIMPLES -->
+    <div class="wrapper" *ngIf="!checkIfUserIsLogged()">
+        <ng-container *ngTemplateOutlet="logoTemplate"></ng-container>
+    </div>
+    
+    <!-- COMPLETO (+ user) -->
+    <div class="wrapper -has-user" *ngIf="checkIfUserIsLogged()">
+        <div></div>
+
+        <ng-container *ngTemplateOutlet="logoTemplate"></ng-container>
+
+        <div class="user">
+            <div class="info">
+            <span class="name">{{ user.name }}</span>
+            <span class="role">{{ user.role }}</span>
+            </div>
+            <div class="photo-wrapper">
+            <img src="https://img.ibxk.com.br/2019/02/17/17124052466014.jpg" alt="Foto do usuário">
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- TEMPLATE - logo -->
+<ng-template #logoTemplate>
+    <div class="logo-wrapper">
+        <img alt="Logo da DevFreela" class="image" src="assets/logo/devfreela.svg">
+    </div>
+</ng-template>

@@ -1,0 +1,14 @@
+<div class="ld-wrapper">
+    <ld-header></ld-header>
+
+    <main 
+        class="main-content"
+        [class.-one-col]="type === 'one-col'"
+    >
+        <a *ngIf="back !== ''" class="back-btn material-icons" (click)="redirectTo(back)">
+            keyboard_arrow_left
+        </a>
+
+        <ng-content></ng-content>
+    </main>
+</div>

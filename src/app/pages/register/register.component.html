@@ -1,0 +1,62 @@
+<div class="ld-register">
+  <ld-wrapper>
+    <form class="left" (submit)="cadastrar()" [formGroup]="registerForm">
+
+      <h1 class="main-title">
+        <span class="up">Olá!</span>
+        <span class="down">Vamos criar seu cadastro.</span>
+      </h1>
+
+      <div class="radio-buttons">
+        <h3 class="title">Qual o seu perfil?</h3>
+        <div class="buttons">
+          <label class="ld-radio">
+            Dev
+            <input name="role" type="radio" (click)="toogleRole('dev')">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="ld-radio">
+            Cliente
+            <input name="role" type="radio" (click)="toogleRole('cliente')">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <span class="role-invalid" *ngIf="helpers.isInvalid(registerForm, 'role', 'required')">{{ msg.role }}</span>
+      </div>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Nome completo</mat-label>
+        <input matInput formControlName="fullName">
+        <mat-error *ngIf="helpers.isInvalid(registerForm, 'fullName', 'required')">{{ msg.required }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Data de nascimento</mat-label>
+        <input type="date" matInput formControlName="birthdate">
+        <mat-error *ngIf="helpers.isInvalid(registerForm, 'birthdate', 'required')">{{ msg.required }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="helpers.isInvalid(registerForm, 'email', 'required')">{{ msg.required }}</mat-error>
+        <mat-error *ngIf="helpers.isInvalid(registerForm, 'email', 'email')">{{ msg.email }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error *ngIf="helpers.isInvalid(registerForm, 'password', 'required')">{{ msg.required }}</mat-error>
+      </mat-form-field>
+
+      <ld-button text="Continuar"></ld-button>
+
+    </form>
+
+    <div class="right">
+      <img class="image" alt="Fundo de decoração com 3 cubos com fundo gradient das cores do arco-iris"
+        src="assets/image/bg-cubes.png">
+    </div>
+  </ld-wrapper>
+</div>
